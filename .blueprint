@@ -1,5 +1,73 @@
+created:
+    - app/Http/Controllers/ProductController.php
+    - app/Http/Controllers/SaleController.php
+    - app/Http/Controllers/OrderController.php
+    - app/Http/Controllers/Sale_detailController.php
+    - app/Http/Controllers/DebtController.php
+    - database/factories/ProductFactory.php
+    - database/factories/SaleFactory.php
+    - database/factories/OrderFactory.php
+    - database/factories/SaleDetailFactory.php
+    - database/factories/DebtFactory.php
+    - database/migrations/2023_06_10_033359_create_products_table.php
+    - database/migrations/2023_06_10_033400_create_sales_table.php
+    - database/migrations/2023_06_10_033401_create_orders_table.php
+    - database/migrations/2023_06_10_033402_create_sale_details_table.php
+    - database/migrations/2023_06_10_033403_create_debts_table.php
+    - app/Models/Product.php
+    - app/Models/Sale.php
+    - app/Models/Order.php
+    - app/Models/Sale_detail.php
+    - app/Models/Debt.php
+    - database/seeders/ProductSeeder.php
+    - database/seeders/SaleSeeder.php
+    - database/seeders/OrderSeeder.php
+    - database/seeders/SaleDetailSeeder.php
+    - database/seeders/DebtSeeder.php
+    - tests/Feature/Http/Controllers/ProductControllerTest.php
+    - tests/Feature/Http/Controllers/SaleControllerTest.php
+    - tests/Feature/Http/Controllers/OrderControllerTest.php
+    - tests/Feature/Http/Controllers/Sale_detailControllerTest.php
+    - tests/Feature/Http/Controllers/DebtControllerTest.php
+    - app/Http/Requests/ProductStoreRequest.php
+    - app/Http/Requests/ProductUpdateRequest.php
+    - app/Http/Requests/SaleStoreRequest.php
+    - app/Http/Requests/SaleUpdateRequest.php
+    - app/Http/Requests/OrderStoreRequest.php
+    - app/Http/Requests/OrderUpdateRequest.php
+    - app/Http/Requests/Sale_detailStoreRequest.php
+    - app/Http/Requests/Sale_detailUpdateRequest.php
+    - app/Http/Requests/DebtStoreRequest.php
+    - app/Http/Requests/DebtUpdateRequest.php
+    - resources/views/product/index.blade.php
+    - resources/views/product/create.blade.php
+    - resources/views/product/show.blade.php
+    - resources/views/product/edit.blade.php
+    - resources/views/sale/index.blade.php
+    - resources/views/sale/create.blade.php
+    - resources/views/sale/show.blade.php
+    - resources/views/sale/edit.blade.php
+    - resources/views/order/index.blade.php
+    - resources/views/order/create.blade.php
+    - resources/views/order/show.blade.php
+    - resources/views/order/edit.blade.php
+    - resources/views/saleDetail/index.blade.php
+    - resources/views/saleDetail/create.blade.php
+    - resources/views/saleDetail/show.blade.php
+    - resources/views/saleDetail/edit.blade.php
+    - resources/views/debt/index.blade.php
+    - resources/views/debt/create.blade.php
+    - resources/views/debt/show.blade.php
+    - resources/views/debt/edit.blade.php
+updated:
+    - routes/web.php
 models:
     Membership: { team_id: 'biginteger unsigned', user_id: 'biginteger unsigned', role: 'string nullable' }
     Team: { user_id: 'biginteger unsigned', name: string, personal_team: boolean }
     TeamInvitation: { team_id: 'biginteger unsigned', email: string, role: 'string nullable' }
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, two_factor_secret: 'text nullable', two_factor_recovery_codes: 'text nullable', two_factor_confirmed_at: 'datetime nullable', remember_token: 'string:100 nullable', current_team_id: 'biginteger unsigned nullable', profile_photo_path: 'string:2048 nullable' }
+    Product: { name: 'string:50', description: 'string:100', price: double, stock: integer, relationships: { hasMany: 'Sale_detail, Debt, Order' } }
+    Sale: { user_name: 'string:50', total: double, relationships: { hasMany: Sale_detail } }
+    Order: { customer_name: 'string:50', direction: 'string:100', number_phone: 'string:10', delivery_date: date, leave: float, subtract: float, description: 'string:100', total: double, id_product: foreignId }
+    Sale_detail: { amout: integer, subtotal: double, total: double, id_sale_detail: foreignId, id_product: foreignId }
+    Debt: { customer_name: 'string:50', description: 'string:100', leave: float, subtract: float, total: double, id_product: foreignId }

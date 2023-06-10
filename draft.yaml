@@ -1,5 +1,48 @@
 models:
-  # ...
-
+    Product:
+        name: string:50 
+        description: string:100 
+        price: double 
+        stock: integer 
+        relationships:
+           hasMany: Sale_detail, Debt, Order
+    Sale:
+        user_name: string:50 
+        total: double 
+        relationships:
+            hasMany: Sale_detail
+    Order:
+        customer_name: string:50 
+        direction: string:100 
+        number_phone: string:10 
+        delivery_date: date 
+        leave: float 
+        subtract: float 
+        description: string:100 
+        total: double 
+        id_product: foreignId 
+    Sale_detail:
+        amout: integer 
+        subtotal: double 
+        total: double 
+        id_sale_detail: foreignId 
+        id_product: foreignId 
+    Debt:
+        customer_name: string:50 
+        description: string:100 
+        leave: float 
+        subtract: float 
+        total: double 
+        id_product: foreignId 
+seeders: Product, Sale, Order, Sale_detail, Debt
 controllers:
-  # ...
+    Product:
+        resource: web
+    Sale:
+        resource: web
+    Order:
+        resource: web
+    Sale_detail:
+        resource: web
+    Debt:
+        resource: web
