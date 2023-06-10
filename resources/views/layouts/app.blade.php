@@ -25,7 +25,7 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow px-10">
+                <header class="bg-white shadow px-8">
                     <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:py-4">
                         {{ $header }}
                     </div>
