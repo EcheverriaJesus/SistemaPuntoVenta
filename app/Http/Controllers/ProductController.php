@@ -57,4 +57,16 @@ class ProductController extends Controller
 
         return redirect()->route('product.index');
     }
+
+    public function search(Request $request)
+    {
+    $searchTerm = $request->input('search');
+
+    $products = Product::query()
+        ->where('name', 'like', '%' . $searchTerm . '%')
+        ->orWhere('id', $searchTerm)
+        ->get();
+
+    return view('product.index', ['products' => $products]);
+    }
 }

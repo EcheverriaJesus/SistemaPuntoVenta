@@ -7,7 +7,7 @@ $nav_links =[
         'path' => 'M12 9.185l7 6.514v6.301h-3v-5h-8v5h-3v-6.301l7-6.514zm0-2.732l-9 8.375v9.172h7v-5h4v5h7v-9.172l-9-8.375zm12 5.695l-12-11.148-12 11.133 1.361 1.465 10.639-9.868 10.639 9.883 1.361-1.465z'
     ],
     [
-        'name' => 'Prodcutos',
+        'name' => 'Productos',
         'route' => route('product.index'),
         'active' => request()->routeIs('product.index'),
         'path' => 'M21.62 20.196c1.055-.922 1.737-2.262 1.737-3.772 0-1.321-.521-2.515-1.357-3.412v-6.946l-11.001-6.066-11 6v12.131l11 5.869 5.468-2.917c.578.231 1.205.367 1.865.367.903 0 1.739-.258 2.471-.676l2.394 3.226.803-.596-2.38-3.208zm-11.121 2.404l-9.5-5.069v-10.447l9.5 4.946v10.57zm1-.001v-10.567l5.067-2.608.029.015.021-.04 4.384-2.256v5.039c-.774-.488-1.686-.782-2.668-.782-2.773 0-5.024 2.252-5.024 5.024 0 1.686.838 3.171 2.113 4.083l-3.922 2.092zm6.833-2.149c-2.219 0-4.024-1.808-4.024-4.026s1.805-4.025 4.024-4.025c2.22 0 4.025 1.807 4.025 4.025 0 2.218-1.805 4.026-4.025 4.026zm-.364-3.333l-1.306-1.147-.66.751 2.029 1.782 2.966-3.12-.725-.689-2.304 2.423zm-16.371-10.85l4.349-2.372 9.534 4.964-4.479 2.305-9.404-4.897zm9.4-5.127l9.404 5.186-3.832 1.972-9.565-4.98 3.993-2.178z'
@@ -33,7 +33,7 @@ $nav_links =[
 ];
 @endphp
 
-<nav x-data="{ open: false }" class="bg-slate-200 border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white sm:bg-[#004e7c] border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-14">
@@ -41,7 +41,7 @@ $nav_links =[
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img class="w-16" src="../images/SysWare.png" alt="">
+                        <img class="w-12 rounded-full" src="../images/SysWare.png" alt="">
                     </a>
                 </div>
 
@@ -49,7 +49,7 @@ $nav_links =[
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @foreach ( $nav_links as $nav_link )
                     <x-nav-link href="{{ $nav_link['route'] }}" :active=" $nav_link['active']" class="gap-2">
-                        <svg class="w-5" viewBox="0 0 24 24"><path d="{{ $nav_link['path'] }}"/></svg>
+                        <svg class="w-5" viewBox="0 0 24 24"><path fill="#ffffff" d="{{ $nav_link['path'] }}"/></svg>
                         {{ $nav_link['name'] }}
                     </x-nav-link>   
                     @endforeach

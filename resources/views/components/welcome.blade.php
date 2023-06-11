@@ -1,15 +1,15 @@
-<div class="p-6 lg:p-8 bg-white border-b border-gray-200">
-    <x-application-logo class="block h-12 w-auto" />
-
-    <h1 class="mt-8 text-2xl font-medium text-gray-900">
-        Welcome to your Jetstream application!
+<div class="p-6 lg:p-8 bg-gradient-to-r from-[#004e7c] to-[#0174ab] border-b border-gray-200">
+    <h1 class="mt-4 text-2xl text-white font-bold">
+        Bienvenido a "Miscelanea Sulibeth" !!
     </h1>
-    <p class="mt-6 text-gray-500 leading-relaxed">
-        Laravel Jetstream provides a beautiful, robust starting point for your next Laravel application. Laravel is designed
-        to help you build your application using a development environment that is simple, powerful, and enjoyable. We believe
-        you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
-        ecosystem to be a breath of fresh air. We hope you love it.
-    </p>
+    <div class="flex grid-cols-2"> 
+            <p class="w-full sm:mt-6 text-white leading-relaxed text-justify">
+                Sistema Punto de Venta Miscelanea Sulibeth. Realiza ventas de forma rápida y segura, compatible con lectores de codigo de barras, capas de llevar el registro de productos, asi como su venta de estos, demas del registro puedes llevar un control de los pedidos y adeudos que sus cliente le pidan.
+            </p>
+        <div class="hidden sm:flex justify-center items-center w-1/2 ">
+            <img class="w-52 rounded-full hover:scale-90 ease-in duration-300" src="../images/SysWare.png" alt="">
+        </div>
+    </div>
 </div>
 
 <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
