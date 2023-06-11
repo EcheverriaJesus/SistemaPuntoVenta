@@ -41,10 +41,11 @@
     <div>
         <div class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
-                <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                <path stroke-linecap="round" d="M12,5c-1.379,0-2.5-1.122-2.5-2.5s1.121-2.5,2.5-2.5,2.5,1.122,2.5,2.5-1.121,2.5-2.5,2.5Zm0-4c-.827,0-1.5,.673-1.5,1.5s.673,1.5,1.5,1.5,1.5-.673,1.5-1.5-.673-1.5-1.5-1.5Zm3,14h2v-6.5c0-1.378-1.121-2.5-2.5-2.5h-5c-1.379,0-2.5,1.122-2.5,2.5v6.5h2v6h1v-7h-2v-5.5c0-.827,.673-1.5,1.5-1.5h5c.827,0,1.5,.673,1.5,1.5v5.5h-2v7h1v-6Zm2,1.354v1.001c3.798,.575,6,1.738,6,2.645,0,1.253-4.185,3-11,3s-11-1.747-11-3c0-.907,2.202-2.07,6-2.645v-1.001c-3.885,.566-7,1.803-7,3.646,0,2.598,6.183,4,12,4s12-1.402,12-4c0-1.843-3.115-3.081-7-3.646Z" />
             </svg>
+            
             <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                <a href="https://laracasts.com">Laracasts</a>
+                <a href="https://laracasts.com">Propietario del Negocio</a>
             </h2>
         </div>
 
@@ -83,8 +84,9 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
             </svg>
+            
             <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                Authentication
+                Ubicación
             </h2>
         </div>
 
