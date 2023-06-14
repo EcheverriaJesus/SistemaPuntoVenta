@@ -8,17 +8,20 @@ use Livewire\WithPagination;
 
 class MostrarProduct extends Component
 {
-    
-    protected $products;
     use WithPagination;
+    public $searchProduct = '';
 
     public function render()
     {
-
-        $this->products = Product::paginate(5);
+        $products = Product::where(function ($query) {
+        $query->where('name', 'like', '%' . $this->searchProduct . '%')->orWhere('codigo', 'like', '%' . $this->searchProduct . '%');
+        })->paginate(5);
         return view('livewire.product.mostrar-product', [
-            'products' => $this->products,
+            'products' => $products,
         ]);
-        
     }
+    public function updatingSearchProduct()
+{
+    $this->resetPage();
+}
 }
