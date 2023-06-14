@@ -14,10 +14,8 @@ class SearchProduct extends Component
     public function render()
     {
         $products = Product::where('name', 'like', '%' . $this->searchProduct . '%')->get();
-        
-        $this->emit('searchProductResults', $this->searchProduct, $products);
        
-        return view('product.index');
+        return view('livewire.search-product', compact('products'));
     }
    
 }

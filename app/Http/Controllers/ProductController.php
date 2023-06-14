@@ -13,8 +13,10 @@ class ProductController extends Controller
 {
     public function index(Request $request): View
     {
-        $products = Product::all();
+        $searchProduct = $request->input('searchProduct');
 
+        $products = Product::where('name', 'like', '%' . $searchProduct . '%')->get();
+    
         return view('product.index', compact('products'));
     }
 
