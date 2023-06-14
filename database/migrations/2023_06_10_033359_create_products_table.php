@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('codigo')->default(uniqid());
             $table->string('name', 50);
-            $table->string('description', 100);
+            $table->string('description', 255);
             $table->double('price');
             $table->integer('stock');
             $table->timestamps();

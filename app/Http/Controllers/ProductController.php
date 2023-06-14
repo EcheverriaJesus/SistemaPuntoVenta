@@ -15,9 +15,9 @@ class ProductController extends Controller
     {
         $searchProduct = $request->input('searchProduct');
 
-        $products = Product::where('name', 'like', '%' . $searchProduct . '%')->get();
-    
-        return view('product.index', compact('products'));
+        $products = Product::where('name', 'like', '%' . $searchProduct . '%')->paginate(5);
+
+        return view('product.index')->with('products', $products);
     }
 
     public function create(Request $request): Response
