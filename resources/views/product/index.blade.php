@@ -4,10 +4,9 @@
             {{ __('ADMINISTRA TUS PRODUCTOS EN ESTE APARTADO') }}
         </h2>
     </x-slot>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-1">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-5">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">     
             <livewire:product.mostrar-product />
         </div>
     </div>
 </x-app-layout>
-

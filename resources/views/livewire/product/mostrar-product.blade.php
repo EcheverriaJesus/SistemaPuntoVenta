@@ -1,29 +1,16 @@
-<div class="px-5 ">
-    <section class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-4">
-     <article class="block w-full">
-        <label for="searchProduct" class="mb-2 text-base font-medium text-gray-700">Buscar Productos</label>
-        <div class="relative w-2/3 pt-2">  
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="#1A56DB" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-            </div>
-                <input class="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" wire:model="searchProduct" placeholder="Ingrese codigo o nombre">
-        </div>
-     </article>  
-     <article>
-        <div class="flex hover:scale-105 ease-in duration-300">
-            <a href="#" class="flex items-center px-4 py-2 font-semibold tracking-widest text-white transition duration-150 ease-in-out bg-[#004e7c] border rounded-md tet-sm border-transparet hover:bg-[#0174ab]">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <label class="ml-1 text-xs">Agregar Producto</label>
-            </a>
-        </div>
-     </article>
+<div class="px-5">
+    <section class="mt-4 bg-opacity-25 grid md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-3">
+     <x-search-bar var="searchProduct" title="Buscar Productos" wiremodel="searchProduct" placeholder="Ingrese código o nombre" />
+
+     <x-button-add :ruta="route('order.index')">
+        Agregar Producto
+     </x-button-add>
     </section>
 
     <section class="flex py-3 items-center gap-3">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" class="w-6 h-6 stroke-gray-400">
         <path stroke-linecap="round" stroke-linejoin="round" d="M23 6.066v12.065l-11.001 5.869-11-5.869v-12.131l11-6 11.001 6.066zm-21.001 11.465l9.5 5.069v-10.57l-9.5-4.946v10.447zm20.001-10.388l-9.501 4.889v10.568l9.501-5.069v-10.388zm-5.52 1.716l-9.534-4.964-4.349 2.373 9.404 4.896 4.479-2.305zm-8.476-5.541l9.565 4.98 3.832-1.972-9.405-5.185-3.992 2.177z" /></svg>
-        <h2 class="text-lg font-semibold text-gray-700">Productos Registrados:</h2>
+        <h2 class="text-base font-semibold text-gray-700">Productos Registrados:</h2>
         <p class="text-gray-500 text-base leading-relaxed">Actualmente en el sistema se encuentran {{ $products->total() }} productos registrados.</p>
     </section>
 

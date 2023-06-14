@@ -21,7 +21,7 @@ class MostrarProduct extends Component
         ]);
     }
     public function updatingSearchProduct()
-{
+    {
     $this->resetPage();
-}
+    }
 }
