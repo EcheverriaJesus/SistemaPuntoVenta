@@ -44,5 +44,3 @@ Route::resource('order', App\Http\Controllers\OrderController::class)->middlewar
 Route::resource('sale_detail', App\Http\Controllers\Sale_detailController::class)->middleware('auth:sanctum');
 
 Route::resource('debt', App\Http\Controllers\DebtController::class)->middleware('auth:sanctum');
-
-Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');

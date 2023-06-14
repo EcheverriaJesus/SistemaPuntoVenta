@@ -5,27 +5,13 @@
         </h2>
     </x-slot>
 
-    <div class="py-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
         
     <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-4">
         <div>
             <div class="block w-full ">
-        <form>
-            <div class="flex gap-2">
-                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                </svg>   
-                <label for="default-search" class="text-base font-medium text-gray-500 pb-2">Busca Prouctos que estan registrados en tu inventario</label>
-            </div>
-            <div class="flex relative">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="#1A56DB" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                </div>
-                <input wire:model='searchUser' type="search" id="default-search" class="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar por nombre o codigo" required>
-            </div>
-        </form>
+                <livewire:product.search-product />
     </div>
         </div>
     
@@ -70,11 +56,11 @@
                               <tbody>
                                   @foreach ($products as $product)
                                       <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                          <td class="px-6 py-4 text-center">{{ $product->id }}</td>
-                                          <td class="px-6 py-4 text-center">{{ $product->name }}</td>
-                                          <td class="px-6 py-4 text-center">{{ $product->description }}</td>
-                                          <td class="px-6 py-4 text-center">$ {{ $product->price }}</td>
-                                          <td class="px-6 py-4 text-center">{{ $product->stock }}</td>
+                                          <td class="px-6 py-4 text-center">{{ $product -> id }}</td>
+                                          <td class="px-6 py-4 text-center">{{ $product -> name }}</td>
+                                          <td class="px-6 py-4 text-center">{{ $product -> description }}</td>
+                                          <td class="px-6 py-4 text-center">$ {{ $product -> price }}</td>
+                                          <td class="px-6 py-4 text-center">{{ $product -> stock }}</td>
                                           <td class="flex justify-center px-6 py-4 space-x-4 text-center">
                                              <a href="{{route('product.edit',$product->id)}}"
                                                  class="flex justify-center gap-2 px-2 text-xs font-bold text-black uppercase bg-white border-black rounded-lg hover:scale-90">
