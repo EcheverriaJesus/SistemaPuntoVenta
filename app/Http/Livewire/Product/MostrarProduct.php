@@ -9,8 +9,9 @@ use Livewire\WithPagination;
 class MostrarProduct extends Component
 {
 
-    public $confirmingUserDeletion;
+    public $confirmingUserDeletion = false;
     use WithPagination;
+    public $productIdToDelete;
     public $searchProduct = '';
 
     public function render()
@@ -27,12 +28,17 @@ class MostrarProduct extends Component
     $this->resetPage();
     }
 
+    public function confirmDeleteProduct($productId)
+    {
+        $this->productIdToDelete = $productId;
+        $this->confirmingUserDeletion = true;
+    }
+    public function deleteProduct()
+    {
+        $product = Product::findOrFail($this->productIdToDelete);
+        $product->delete();
 
-    public function deleteProduct(Product $product)
-{
-    $product->delete();
-    $this->confirmingUserDeletion = false;
-}
-
+        $this->confirmingUserDeletion = false;
+    }
 
 }
