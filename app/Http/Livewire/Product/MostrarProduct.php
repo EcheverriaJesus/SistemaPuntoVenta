@@ -8,6 +8,7 @@ use Livewire\WithPagination;
 
 class MostrarProduct extends Component
 {
+
     public $confirmingUserDeletion;
     use WithPagination;
     public $searchProduct = '';
@@ -25,4 +26,13 @@ class MostrarProduct extends Component
     {
     $this->resetPage();
     }
+
+
+    public function deleteProduct(Product $product)
+{
+    $product->delete();
+    $this->confirmingUserDeletion = false;
+}
+
+
 }
