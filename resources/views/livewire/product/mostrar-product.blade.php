@@ -1,11 +1,35 @@
 <div class="px-5">
     <section class="mt-4 bg-opacity-25 grid md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-3">
-     <x-search-bar var="searchProduct" title="Buscar Productos" wiremodel="searchProduct" placeholder="Ingrese código o nombre" />
-
-     <x-button-add :ruta="route('order.index')">
-        Agregar Producto
-     </x-button-add>
+        <x-search-bar var="searchProduct" title="Buscar Productos" wiremodel="searchProduct" placeholder="Ingrese código o nombre" />
+        <x-button-add :ruta="route('order.index')">
+           Agregar Producto
+        </x-button-add>
     </section>
+    
+    <button wire:click="$toggle('confirmingUserDeletion')">Open Modal</button>
+
+    <x-confirmation-modal wire:model="confirmingUserDeletion">
+        <x-slot name="title">
+            Eliminar Producto
+        </x-slot>
+    
+        <x-slot name="content">
+            ¿Está seguro de que desea eliminar este registro? Una vez que se elimine, todos los datos se eliminarán de forma permanente.
+        </x-slot>
+    
+        <x-slot name="footer">
+            <x-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                Cancelar
+            </x-secondary-button>
+    
+            <x-danger-button class="ml-2" wire:click="deleteUser" wire:loading.attr="disabled">
+                Eliminar
+            </x-danger-button>
+        </x-slot>
+    </x-confirmation-modal>
+
+
+
 
     <section class="flex py-3 items-center gap-3">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" class="w-6 h-6 stroke-gray-400">

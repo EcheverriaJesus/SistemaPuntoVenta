@@ -8,6 +8,7 @@ use Livewire\WithPagination;
 
 class MostrarProduct extends Component
 {
+    public $confirmingUserDeletion;
     use WithPagination;
     public $searchProduct = '';
 

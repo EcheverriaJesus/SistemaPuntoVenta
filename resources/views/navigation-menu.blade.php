@@ -36,24 +36,22 @@ $nav_links =[
 <nav x-data="{ open: false }" class="bg-white sm:bg-[#004e7c] border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-14">
+        <div class="flex justify-between h-12">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img class="w-12 rounded-full" src="../images/SysWare.png" alt="">
+                        <img class="w-10 rounded-full" src="../images/SysWare.png" alt="">
                     </a>
                 </div>
-
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
                     @foreach ( $nav_links as $nav_link )
                     <x-nav-link href="{{ $nav_link['route'] }}" :active=" $nav_link['active']" class="gap-2">
-                        <svg class="w-5" viewBox="0 0 24 24"><path fill="#ffffff" d="{{ $nav_link['path'] }}"/></svg>
+                        <svg class="w-4" viewBox="0 0 24 24"><path fill="#ffffff" d="{{ $nav_link['path'] }}"/></svg>
                         {{ $nav_link['name'] }}
                     </x-nav-link>   
                     @endforeach
-                    
                 </div>
             </div>
 
