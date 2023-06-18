@@ -20,6 +20,7 @@ class ProductStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'codigo' => ['required','string'],
             'name' => ['required', 'string', 'max:50'],
             'description' => ['required', 'string', 'max:100'],
             'price' => ['required', 'numeric'],

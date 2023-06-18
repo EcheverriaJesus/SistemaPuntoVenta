@@ -37,8 +37,6 @@ class MostrarProduct extends Component
     {
         $product = Product::findOrFail($this->productIdToDelete);
         $product->delete();
-
         $this->confirmingUserDeletion = false;
     }
-
 }
