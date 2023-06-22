@@ -1,7 +1,10 @@
 <div class="px-5">
     <section class="mt-4 bg-opacity-25 grid md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-3">
         <x-search-bar var="searchProduct" title="Buscar Productos" wiremodel="searchProduct" placeholder="Ingrese código o nombre" />
-        <livewire:product.add-product />
+        {{-- <livewire:product.add-product /> --}}
+        <x-button-add :ruta="route('product.create')">
+            Agregar Producto
+         </x-button-add>
     </section>
 
     <section class="flex py-3 items-center gap-3">
@@ -51,7 +54,7 @@
                             <td class="px-6 py-4 text-center" colspan="6">No se encontraron resultados.</td>
                         </tr>
                       @endforelse
-                      <x-confirmation-modal wire:model="confirmingUserDeletion">
+                      <x-confirmation-modal wire:model="confirmingDeletion">
                         <x-slot name="title">
                             Eliminar Producto
                         </x-slot>
@@ -61,7 +64,7 @@
                         </x-slot>
                     
                         <x-slot name="footer">
-                            <x-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                            <x-secondary-button wire:click="$toggle('confirmingDeletion')" wire:loading.attr="disabled">
                                 Cancelar
                             </x-secondary-button>
     

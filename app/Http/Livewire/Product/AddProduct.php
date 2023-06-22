@@ -6,15 +6,8 @@ use Livewire\Component;
 
 class AddProduct extends Component
 {
-    public $confirming = false;
-
     public function render()
     {
         return view('livewire.product.add-product');
-    }
-
-     public function confirming()
-    {
-        $this->confirming = true;
     }
 }

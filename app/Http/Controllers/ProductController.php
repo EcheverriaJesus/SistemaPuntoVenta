@@ -8,6 +8,7 @@ use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Event;//asignada
 
 class ProductController extends Controller
 {
@@ -20,7 +21,7 @@ class ProductController extends Controller
         return view('product.index')->with('products', $products);
     }
 
-    public function create(Request $request): Response
+    public function create(Request $request): View
     {
         return view('product.create');
     }
@@ -28,9 +29,8 @@ class ProductController extends Controller
     public function store(ProductStoreRequest $request): RedirectResponse
     {
         $product = Product::create($request->validated());
-
         $request->session()->flash('product.id', $product->id);
-
+        Event::dispatch('productCreated', $product);//asignada
         return redirect()->route('product.index');
     }
 
