@@ -8,7 +8,7 @@ use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Event;//asignada
+use Illuminate\Support\Facades\Event;
 
 class ProductController extends Controller
 {
@@ -28,10 +28,16 @@ class ProductController extends Controller
 
     public function store(ProductStoreRequest $request): RedirectResponse
     {
+         // Verificar si el producto ya está registrado
+    $existingProduct = Product::where('codigo', $request->codigo)->first();
+
+    if ($existingProduct) {
+        return redirect()->back()->with('notification', 'El producto ya está registrado.');
+    } else {
         $product = Product::create($request->validated());
-        $request->session()->flash('product.id', $product->id);
-        Event::dispatch('productCreated', $product);//asignada
-        return redirect()->route('product.index');
+    }
+
+    return redirect()->route('product.index');
     }
 
     public function show(Request $request, Product $product): Response

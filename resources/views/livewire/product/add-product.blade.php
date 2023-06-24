@@ -6,6 +6,7 @@
     <div class="p-6 lg:p-8 bg-gradient-to-r from-[#004e7c] to-[#0174ab] border-b border-gray-200 mb-10 rounded-lg">
         <div class="w-full h-auto p-6 mb-3 space-y-6 bg-white border shadow-2xl md:bg-white rounded-xl md:px-20">
             <form action="{{ route('product.store') }}" method="POST">
+                <button wire:click="$toggle('ExistProduct')">Abrir modal</button>
                 @csrf
                 <div class="flex justify-center pb-5">
                     <h2 class="font-semibold text-lg text-gray-500 leading-tight pt-2">
@@ -36,35 +37,35 @@
                     <x-label for="stock" value="{{ __('Stock') }}" />
                     <x-input id="stock" class="block mt-1 w-full" type="number" name="stock" required autocomplete="stock" placeholder="Ingrese la cantidad del producto"/>
                 </div>
-            
+
                 <div class="flex justify-end mt-5">
-                    <x-button wire:click="store" class="ml-4">
+                    <x-button type="submit" class="ml-4">
                         {{ __('Add') }}
                     </x-button>
+                    @if (session('notification'))
+                        <div class="alert alert-warning">
+                        {{ session('notification') }}
+                        </div>
+                    @endif
                 </div>
             </form>
         </div>
     </div>
-    
 </div>
-{{--  <button wire:click="$toggle('confirming')">Abrir Modal</button>
 
- <x-confirmation-modal wire:model="confirming">
+{{-- <x-dialog-modal wire:model="ExistProduct">
     <x-slot name="title">
-        Delete Account
+        Editar Producto
     </x-slot>
 
     <x-slot name="content">
-        Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted.
+       <h1>1</h1>
     </x-slot>
 
     <x-slot name="footer">
-        <x-secondary-button wire:click="$toggle('confirming')" wire:loading.attr="disabled">
-            Nevermind
+        <x-secondary-button wire:click="$toggle('ExistProduct')" wire:loading.attr="disabled">
+            Aceptar
         </x-secondary-button>
-
-        <x-danger-button class="ml-2" wire:click="deleteUser" wire:loading.attr="disabled">
-            Delete Account
-        </x-danger-button>
     </x-slot>
-</x-confirmation-modal> --}}
+</x-dialog-modal> --}}
+
