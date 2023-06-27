@@ -16,6 +16,10 @@
                 <div>
                     <x-label for="codigo" value="{{ __('Codigo') }}" />
                     <x-input id="codigo" class="block mt-1 w-full" type="text" name="codigo" :value="old('codigo')" required autofocus autocomplete="codigo" placeholder="Ingrese codigo del producto"/>
+                    <div class="flex items-center pt-3 gap-3">
+                        <x-checkbox class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" />
+                        <h5 class="text-sm font-normal text-gray-600">Marque la casilla si el producto no cuenta con codigo</h5>
+                    </div>
                 </div>
             
                 <div class="mt-4">
@@ -43,9 +47,23 @@
                         {{ __('Add') }}
                     </x-button>
                     @if (session('notification'))
-                        <div class="alert alert-warning">
-                        {{ session('notification') }}
-                        </div>
+                        @if ($ExistProduct)
+                            <x-dialog-modal wire:model="ExistProduct">
+                            <x-slot name="title">
+                                Editar Producto
+                            </x-slot>
+
+                            <x-slot name="content">
+                                <h1>1</h1>
+                            </x-slot>
+
+                            <x-slot name="footer">
+                                <x-secondary-button wire:click="$toggle('ExistProduct')" wire:loading.attr="disabled">
+                                    Aceptar
+                                </x-secondary-button>
+                            </x-slot>
+                            </x-dialog-modal>
+                        @endif
                     @endif
                 </div>
             </form>
@@ -68,4 +86,3 @@
         </x-secondary-button>
     </x-slot>
 </x-dialog-modal> --}}
-

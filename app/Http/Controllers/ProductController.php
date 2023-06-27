@@ -36,7 +36,6 @@ class ProductController extends Controller
     } else {
         $product = Product::create($request->validated());
     }
-
     return redirect()->route('product.index');
     }
 
